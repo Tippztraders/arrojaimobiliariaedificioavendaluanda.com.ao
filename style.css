@@ -166,25 +166,30 @@ background: url('1200 1H.png') center center / cover no-repeat;
 .gallery-swiper {
   width: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 .swiper-slide img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  display: block;
-  object-fit: block;
+  object-fit: cover;
+  cursor: zoom-in;
 }
-/* == end of swipper gallery == */
 
+ .gallery-swiper .swiper-slide {
+  text-align: center;
+}
 
-
-/* == WRAPPERS AND SWIPERS TO CONTAIN IMAGE == */
 .swiper-slide {
   display: flex !important;
   justify-content: center;
   align-items: center;
 }
+  
+
 /* end of wrappers and swipers to contain images */
+  
+
 
 
 
