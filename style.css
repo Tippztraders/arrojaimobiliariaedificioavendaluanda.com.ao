@@ -13,9 +13,12 @@ body {
   text-align: center;
 }
 
+
+
+/* == HERO == */
 /* == HERO == */
 .hero {
-  background: #fff8dc;
+background: url('header-bg.jpg') center center / cover no-repeat;
   text-align: center;
   padding: 2em 1em;
   color: #333;
@@ -58,7 +61,6 @@ body {
   color: #444;
   margin-top: 0.5em;
 }
-
 
 
 
