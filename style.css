@@ -185,10 +185,34 @@ background: url('1200 1H.png') center center / cover no-repeat;
   justify-content: center;
   align-items: center;
 }
-  
-
 /* end of wrappers and swipers to contain images */
   
+
+
+
+
+
+
+/* == VIDEO GALLERY == */
+
+
+
+/* == PDF CONTROLS == */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.image-grid img {
+  max-width: 100%;
+  height: auto;
+  width: 200px; /* adjust for desktop */
+  cursor: zoom-in;
+}
+/* == end of PDF CONTROLS == */
 
 
 
