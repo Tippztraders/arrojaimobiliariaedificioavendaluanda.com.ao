@@ -394,6 +394,11 @@ section p {
   padding: 12px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
   text-align: center; /* center all inner text including emoji */
+    background-color: #f7ffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
 .emoji {
@@ -406,9 +411,24 @@ section p {
   margin: 0;
   align-items: center;
   justify-content: center;
+  
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
- 
+
+}
+
+.highlight-card {
+  text-align: center;
+} 
 /* end of resume */  
+
+
+
+
+
 
 
 /* == FOOTER: THIS CODE CONTROLS THE FOOTER == */
