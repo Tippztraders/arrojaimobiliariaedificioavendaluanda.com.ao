@@ -1,4 +1,3 @@
-/* Reset & Base */
 body {
   margin: 0;
   font-family: sans-serif;
@@ -294,6 +293,11 @@ section p {
   font-style: italic;
 }
 
+
+
+
+
+
 /* == IMAGE GALLERY == */
 
 /* Make "Toque para abrir" tighter to the gallery */
@@ -399,6 +403,9 @@ section p {
   margin: 0 5px;
 }
 
+
+
+
 /* == VIDEO GALLERY == */
 #videos {
   max-height: 300px;
@@ -445,6 +452,11 @@ section p {
   height: 100%;
   object-fit: cover;
 }
+
+
+
+
+
   
 /* == PRICE == */  
 .info-card {
@@ -487,6 +499,11 @@ section p {
   color: #003366;
 }
 
+
+
+
+
+
 /* == RESUMO == */  
 /* HIGHLIGHT GRID - RESUMO */
 /* == RESUMO == */
@@ -518,31 +535,9 @@ section p {
   justify-content: center;
 }
 
-/* BONUS LINK & DISCLAIMER */
-.bonus-link {
-  display: inline-block;
-  font-size: 1em;  /* reduce from inherited larger sizes */
-  margin-top: 1em;
-  color: #0066cc;
-  text-decoration: underline;
-  font-weight: bold;
-  font-style: italic;
-}
 
-.bonus-link:hover {
-  color: #004499;
-  text-decoration: none;
-}
 
-/* == SWIPERS == */
-.swiper-slide img,
-.swiper-slide video {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-}
-
-/* FOOTER: THIS CODE CONTROLS THE FOOTER */
+/* == FOOTER: THIS CODE CONTROLS THE FOOTER == */
 .footer {
   background-size: 100% 150px;
   background-position: center;
