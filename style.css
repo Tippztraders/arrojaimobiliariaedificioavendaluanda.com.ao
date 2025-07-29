@@ -12,10 +12,11 @@ body {
   padding: 0 1em;
   text-align: center;
 }
+/* end of body */ 
 
 
 
-/* == HERO == */
+
 /* == HERO == */
 .hero {
 background: url('1200 1H.png') center center / cover no-repeat;
@@ -71,6 +72,9 @@ background: url('1200 1H.png') center center / cover no-repeat;
   color: #444;
   margin-top: 0.5em;
 }
+/* end of hero */ 
+
+
 
 
 
@@ -107,7 +111,7 @@ background: url('1200 1H.png') center center / cover no-repeat;
 .section-nav a:hover {
   background-color: #e0e0e0;
 }
-
+/* end of navegation */ 
 
 
 
@@ -149,18 +153,10 @@ background: url('1200 1H.png') center center / cover no-repeat;
   max-width: 920px;
   padding: 10px;
 }
+/* end of description */ 
 
 
 
-
-
-/* == GALERIA DE IMAGENS */
-
-
-
-
-
-/* == VIDEO GALLERY == */
 
 
 
@@ -200,6 +196,8 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 
+
+
 /* == LOCATION == */
 section p {
   font-size: 1.3em;
@@ -224,6 +222,8 @@ section p {
   max-width: 600px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
+/* end of location */ 
+
 
 
 
@@ -321,7 +321,7 @@ section p {
   color: #555;
   font-style: italic;
 }
-
+/* end of gps image */ 
 
 
 
@@ -371,6 +371,8 @@ section p {
   font-size: 1em;
   color: #003366;
 }
+/* end of price */ 
+
 
 
 
@@ -378,8 +380,6 @@ section p {
 
 
 /* == RESUMO == */  
-/* HIGHLIGHT GRID - RESUMO */
-/* == RESUMO == */
 .resume-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -407,7 +407,8 @@ section p {
   align-items: center;
   justify-content: center;
 }
-
+ 
+/* end of resume */  
 
 
 /* == FOOTER: THIS CODE CONTROLS THE FOOTER == */
