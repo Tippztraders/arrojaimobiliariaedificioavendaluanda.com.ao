@@ -169,10 +169,10 @@ background: url('1200 1H.png') center center / cover no-repeat;
 }
 
 .swiper-slide img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-    object-fit: contain;
+  object-fit: block;
 }
 /* == end of swipper gallery == */
 
