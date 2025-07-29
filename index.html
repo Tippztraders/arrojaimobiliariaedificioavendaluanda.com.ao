@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- PhotoSwipe CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/photoswipe@5/dist/photoswipe.css"
+/>
   
 </head>
 <body>
@@ -264,5 +270,27 @@
 </script>
   
 
+
+<!-- PhotoSwipe To make Swipping Happen -->
+<script src="https://unpkg.com/photoswipe@5/dist/photoswipe.min.js"></script>
+
+<!-- PhotoSwipe UI default JS -->
+<script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js" type="module"></script>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#galeria', // your gallery container ID
+    children: 'img', // target images inside gallery
+    pswpModule: () =>
+      import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js'),
+  });
+  lightbox.init();
+</script>
+
+
+
+  
  </body>
 </html>
