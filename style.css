@@ -162,6 +162,37 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 
+/* == SWIPPER FOR IMAGE GALLERY == */
+.gallery-swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+    object-fit: contain;
+}
+/* == end of swipper gallery == */
+
+
+
+/* == WRAPPERS AND SWIPERS TO CONTAIN IMAGE == */
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+/* end of wrappers and swipers to contain images */
+
+
+
+
+
+
+
+
 
 /* == INFO CARDS == */
 .info-card {
