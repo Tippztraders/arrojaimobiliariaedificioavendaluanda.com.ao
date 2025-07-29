@@ -24,6 +24,16 @@ background: url('1200 1H.png') center center / cover no-repeat;
   color: #333;
 }
 
+.hero-content {
+  background: rgba(255, 255, 255, 0.85); /* translucent white */
+  display: inline-block;
+  padding: 1.5em 1em;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: 0 auto;
+  color: #222; /* dark text inside white block */
+}
+
 .hero-logo {
   width: 90px;
   height: auto;
