@@ -197,7 +197,7 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 
-/* == PDF CONTROLS == */
+/* == PDF CONTROLS 1== */
 .image-grid {
   display: flex;
   flex-wrap: wrap;
@@ -212,12 +212,24 @@ background: url('1200 1H.png') center center / cover no-repeat;
   width: 200px; /* adjust for desktop */
   cursor: zoom-in;
 }
-/* == end of PDF CONTROLS == */
+/* == end of PDF CONTROLS 1 == */
 
 
 
+/* == PDF CONTROLS 2== */
+#galeria-pdf {
+  padding: 2em 1em;
+  text-align: center;
+}
 
-
+.pdf-container {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+/* == end of PDF CONTROLS 2== */
 
 
 
