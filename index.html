@@ -335,7 +335,46 @@
 </script>
 
 
-  
+ <script>
+const thumbs = document.querySelectorAll('.gallery-placeholder img');
+const fullscreenSwiper = document.getElementById('fullscreenSwiper');
+const swiperWrapper = fullscreenSwiper.querySelector('.swiper-wrapper');
+let swiper;
+
+function openGallery(startIndex) {
+  swiperWrapper.innerHTML = '';
+
+  thumbs.forEach((img) => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    const fullImg = document.createElement('img');
+    fullImg.src = img.src;
+    slide.appendChild(fullImg);
+    swiperWrapper.appendChild(slide);
+  });
+
+  fullscreenSwiper.classList.add('active');
+
+  if (swiper) swiper.destroy(true, true);
+  swiper = new Swiper('#fullscreenSwiper', {
+    initialSlide: startIndex,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    zoom: true
+  });
+}
+
+thumbs.forEach((img, index) => {
+  img.addEventListener('click', () => openGallery(index));
+});
+
+document.querySelector('.tap-exit').addEventListener('click', () => {
+  fullscreenSwiper.classList.remove('active');
+});
+</script>
+ 
 
   
  </body>
