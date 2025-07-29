@@ -8,6 +8,9 @@
   <!-- Your CSS + Swiper CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
 </head>
 <body>
   <div class="site-container">
@@ -245,6 +248,21 @@
     <p>© 2025 Arroja Imobiliárias. Todos os direitos reservados.</p>
   </div>
 </footer>
+
+
+
+<script>
+  const swiper = new Swiper('.gallery-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+  
 
  </body>
 </html>
