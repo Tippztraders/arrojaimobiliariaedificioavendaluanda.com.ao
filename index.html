@@ -1,195 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Edifício à Venda - Keep Pushing</title>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Your CSS + Swiper CSS (v10 only) -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  
+  <!-- Demo styles -->
   <style>
-    /* Gallery Styles */
-    .thumbnail-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+    html,
+    body {
+      position: relative;
+      height: 100%;
     }
-    .thumbnail {
-      width: 100px;
-      height: 70px;
-      object-fit: cover;
-      cursor: pointer;
+
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
     }
-    .fullscreen-gallery {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .fullscreen-gallery .swiper {
-      width: 100%;
-      height: 90vh;
-    }
-    .fullscreen-gallery img {
+
+    .swiper {
       width: 100%;
       height: 100%;
-      object-fit: contain;
     }
-    .close-gallery {
-      color: white;
+
+    .swiper-slide {
       text-align: center;
-      padding-top: 1em;
-      font-size: 1.2em;
-      cursor: pointer;
-      user-select: none;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
+
 <body>
-  <div class="site-container">
-
-    <!-- HEADER -->
-    <header class="hero">
-      <div class="hero-content">
-        <img src="logo.png" alt="Logo" class="hero-logo" />
-        <h1 class="headline">Edifício à Venda</h1>
-        <p class="address-line">Av. Lenine, Mutu-ya-Kevele</p>
-        <p class="city">Luanda – Angola</p>            
-      </div>
-    </header>
-
-    <!-- GALLERY -->
-    <section id="image-gallery">
-      <h2><u>Galeria de Imagens</u></h2>
-
-      <div class="thumbnail-grid">
-        <img src="FG1_thumb.jpg" data-index="0" class="thumbnail" alt="Imagem 1" />
-        <img src="FG2_thumb.jpg" data-index="1" class="thumbnail" alt="Imagem 2" />
-        <img src="FG3_thumb.jpg" data-index="2" class="thumbnail" alt="Imagem 3" />
-        <!-- Add thumbnails up to FG38 -->
-      </div>
-
-      <div class="fullscreen-gallery">
-        <div class="swiper fullscreen-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="FG1.jpg" alt="Imagem 1" /></div>
-            <div class="swiper-slide"><img src="FG2.jpg" alt="Imagem 2" /></div>
-            <div class="swiper-slide"><img src="FG3.jpg" alt="Imagem 3" /></div>
-            <!-- Add FG4 to FG38 -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="close-gallery" role="button" tabindex="0" aria-label="Fechar galeria">Toque para sair</div>
-      </div>
-    </section>
-
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
 
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
   <script>
-    // Initialize Swiper with Zoom module
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    const fullscreenGallery = document.querySelector('.fullscreen-gallery');
-    const closeBtn = document.querySelector('.close-gallery');
-
-    let swiper;
-
-    function initializeSwiper(startIndex = 0) {
-      if (swiper) {
-        swiper.slideTo(startIndex);
-        return;
-      }
-      swiper = new Swiper('.fullscreen-swiper', {
-        loop: false,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        zoom: {
-          maxRatio: 3,
-          toggle: true,
-        },
-        initialSlide: startIndex,
-      });
-    }
-
-    thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        fullscreenGallery.style.display = 'flex';
-        initializeSwiper(index);
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      fullscreenGallery.style.display = 'none';
-    });
-
-    // Accessibility: close on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && fullscreenGallery.style.display === 'flex') {
-        fullscreenGallery.style.display = 'none';
-      }
-    });
-  </script>
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  const fullscreenGallery = document.querySelector('.fullscreen-gallery');
-  const closeBtn = document.querySelector('.close-gallery');
-  let swiper;
-
-  function initializeSwiper(startIndex = 0) {
-    if (swiper) {
-      swiper.slideTo(startIndex);
-      return;
-    }
-    swiper = new Swiper('.fullscreen-swiper', {
-      loop: false,
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
       },
-      zoom: {
-        maxRatio: 3,
-      },
-      initialSlide: startIndex,
     });
-  }
-
-  thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-      fullscreenGallery.style.display = 'flex';
-      initializeSwiper(index);
-    });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    fullscreenGallery.style.display = 'none';
-  });
-});
-
-
-
-
-
-
-
-
-  
+  </script>
 </body>
+
 </html>
