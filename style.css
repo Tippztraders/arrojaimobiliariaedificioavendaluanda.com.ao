@@ -238,6 +238,21 @@ background: url('1200 1H.png') center center / cover no-repeat;
   justify-content: center;
   align-items: center;
 }
+
+
+.fullscreen-gallery .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: black;
+}
+
+.fullscreen-gallery .swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 /* end of wrappers and swipers to contain images */
   
 
