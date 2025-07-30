@@ -251,6 +251,17 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 /* == PDF CONTROLS 1== */
+.pdf-galeria-1 {
+ justify-content: center; 
+ text-align: center;
+ font-size: 1.4em;
+ color: #f00707;
+}
+
+
+
+
+
 .image-grid {
   display: flex;
   flex-wrap: wrap;
