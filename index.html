@@ -47,13 +47,108 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="swiper-zoom-container">
+          <div class="thumbnail-grid">
+    <img src="FG1_thumb.jpg" data-index="0" class="thumbnail" />
+    <img src="FG2_thumb.jpg" data-index="1" class="thumbnail" />
+    <img src="FG3_thumb.jpg" data-index="2" class="thumbnail" />
+      </div>
+
+  <!-- FULLSCREEN SWIPER OVERLAY -->
+  <div class="fullscreen-gallery" style="display: none;">
+    <div class="swiper fullscreen-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG1.jpg"></div></div>
+        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG2.jpg"></div></div>
+        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG3.jpg"></div></div>
+        <!-- Add FG4 to FG38 -->
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="close-gallery">Toque para sair</div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ✅ CSS STYLES */
+.thumbnail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.thumbnail {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.fullscreen-gallery {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fullscreen-gallery img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+.close-gallery {
+  color: white;
+  text-align: center;
+  padding-top: 1em;
+  font-size: 1.2em;
+}
+</style>
+
+<!-- ✅ Swiper JS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+// ✅ JS CODE
+const thumbnails = document.querySelectorAll('.thumbnail');
+const fullscreenGallery = document.querySelector('.fullscreen-gallery');
+const closeBtn = document.querySelector('.close-gallery');
+
+let swiper;
+
+function initializeSwiper(startIndex = 0) {
+  if (swiper) {
+    swiper.slideTo(startIndex);
+    return;
+  }
+  swiper = new Swiper('.fullscreen-swiper', {
+    loop: false,
+    zoom: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    initialSlide: startIndex
+  });
+}
+
+thumbnails.forEach((thumb, index) => {
+  thumb.addEventListener('click', () => {
+    fullscreenGallery.style.display = 'flex';
+    initializeSwiper(index);
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  fullscreenGallery.style.display = 'none';
+});
+</script>
           <div class="swiper-slide"><img src="FG1.jpg" /></div>
           <div class="swiper-slide"><img src="FG2.jpg" /></div>
           <div class="swiper-slide"><img src="FG3.jpg" /></div>
-          <div class="swiper-slide"><img src="FG4.jpg" /></div>
-          <div class="swiper-slide"><img src="FG5.jpg" /></div>
-          <div class="swiper-slide"><img src="FG6.jpg" /></div>
-          <div class="swiper-slide"><img src="FG7.jpg" /></div>
           <div class="swiper-slide"><img src="FG8.jpg" /></div>    
         </div>
       </div>
