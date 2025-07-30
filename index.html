@@ -1,180 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <title>Swiper demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-  <!-- Link Swiper's CSS -->
+  <meta charset="UTF-8" />
+  <title>Zoom Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <!-- Demo styles -->
   <style>
-    html,
     body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #000;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #fff;
       margin: 0;
-      padding: 0;
+      font-family: sans-serif;
+      background: #000;
+      color: #fff;
     }
 
-    body {
-      background: #000;
+    .thumbnail-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 1em;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .fullscreen-gallery {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .fullscreen-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .swiper {
       width: 100%;
-      height: 100%;
+      height: 90%;
     }
 
-    .swiper-slide {
-      overflow: hidden;
+    .close-gallery {
+      color: white;
+      text-align: center;
+      padding: 1em;
+      font-size: 1.2em;
+      cursor: pointer;
     }
   </style>
 </head>
-
 <body>
-  <!-- Swiper -->
 
-  <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
+<!-- Thumbnails -->
+<div class="thumbnail-grid">
+  <img src="FG1_thumb.jpg" data-index="0" class="thumbnail" />
+  <img src="FG2_thumb.jpg" data-index="1" class="thumbnail" />
+  <img src="FG3_thumb.jpg" data-index="2" class="thumbnail" />
+</div>
+
+<!-- Fullscreen Swiper -->
+<div class="fullscreen-gallery">
+  <div class="swiper fullscreen-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="swiper-zoom-container">
-          <div class="thumbnail-grid">
-    <img src="FG1_thumb.jpg" data-index="0" class="thumbnail" />
-    <img src="FG2_thumb.jpg" data-index="1" class="thumbnail" />
-    <img src="FG3_thumb.jpg" data-index="2" class="thumbnail" />
-      </div>
-
-  <!-- FULLSCREEN SWIPER OVERLAY -->
-  <div class="fullscreen-gallery" style="display: none;">
-    <div class="swiper fullscreen-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG1.jpg"></div></div>
-        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG2.jpg"></div></div>
-        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG3.jpg"></div></div>
-        <!-- Add FG4 to FG38 -->
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="close-gallery">Toque para sair</div>
+      <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG1.jpg" /></div></div>
+      <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG2.jpg" /></div></div>
+      <div class="swiper-slide"><div class="swiper-zoom-container"><img src="FG3.jpg" /></div></div>
     </div>
-  </div>
-</section>
-
-<style>
-/* ✅ CSS STYLES */
-.thumbnail-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-.thumbnail {
-  width: 100px;
-  height: 70px;
-  object-fit: cover;
-  cursor: pointer;
-}
-.fullscreen-gallery {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.fullscreen-gallery img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-}
-.close-gallery {
-  color: white;
-  text-align: center;
-  padding-top: 1em;
-  font-size: 1.2em;
-}
-</style>
-
-<!-- ✅ Swiper JS CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-// ✅ JS CODE
-const thumbnails = document.querySelectorAll('.thumbnail');
-const fullscreenGallery = document.querySelector('.fullscreen-gallery');
-const closeBtn = document.querySelector('.close-gallery');
-
-let swiper;
-
-function initializeSwiper(startIndex = 0) {
-  if (swiper) {
-    swiper.slideTo(startIndex);
-    return;
-  }
-  swiper = new Swiper('.fullscreen-swiper', {
-    loop: false,
-    zoom: true,
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    initialSlide: startIndex
-  });
-}
-
-thumbnails.forEach((thumb, index) => {
-  thumb.addEventListener('click', () => {
-    fullscreenGallery.style.display = 'flex';
-    initializeSwiper(index);
-  });
-});
-
-closeBtn.addEventListener('click', () => {
-  fullscreenGallery.style.display = 'none';
-});
-</script>
-          <div class="swiper-slide"><img src="FG1.jpg" /></div>
-          <div class="swiper-slide"><img src="FG2.jpg" /></div>
-          <div class="swiper-slide"><img src="FG3.jpg" /></div>
-          <div class="swiper-slide"><img src="FG8.jpg" /></div>    
-        </div>
-      </div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
   </div>
+  <div class="close-gallery">Toque para sair</div>
+</div>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  const fullscreenGallery = document.querySelector('.fullscreen-gallery');
+  const closeBtn = document.querySelector('.close-gallery');
 
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      zoom: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-  </script>
+  let swiper;
+
+  function openGallery(index) {
+    fullscreenGallery.style.display = 'flex';
+    if (!swiper) {
+      swiper = new Swiper('.fullscreen-swiper', {
+        loop: false,
+        zoom: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+    }
+    swiper.slideTo(index, 0);
+  }
+
+  thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => openGallery(index));
+  });
+
+  closeBtn.addEventListener('click', () => {
+    fullscreenGallery.style.display = 'none';
+  });
+</script>
 </body>
-
 </html>
