@@ -269,6 +269,79 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 
+/* == XXXXXXXXXXXX == */
+.gallery-placeholder X {
+  border: 3px solid blue;
+  padding: 1em;
+  margin: 2em auto;
+  max-width: 900px;
+  background-color: #f9f9ff;
+  text-align: center;
+}
+
+.placeholder-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-decoration: underline;
+}
+
+.thumbnail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #007BFF;
+}
+
+.gallery-placeholder {
+  border: 3px solid blue;
+  padding: 1em;
+  margin: 2em auto;
+  max-width: 900px;
+  background-color: #f9f9ff;
+  text-align: center;
+}
+
+.placeholder-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-decoration: underline;
+}
+
+.thumbnail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #007BFF;
+}
+
+/* == end of XXXXXXXXXXXX == */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* == INFO CARDS == */
