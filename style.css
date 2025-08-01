@@ -230,6 +230,19 @@ background: url('1200 1H.png') center center / cover no-repeat;
   cursor: pointer;
   user-select: none;
 }
+
+
+/* === To contain the images on the placeholder === */
+.visible-thumbnail {
+  width: 100%;
+  max-width: 300px; /* or whatever size fits */
+  cursor: pointer;
+}
+
+.hidden-thumb {
+  display: none;
+}
+
 /* === end of GALLERY STYLES === */
 
 
