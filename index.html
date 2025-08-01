@@ -291,12 +291,12 @@
   }
 
   function closeGallery() {
-    fullscreenGallery.style.display = 'none';
-    window.scrollTo({
-      top: document.querySelector('.gallery-placeholder').offsetTop,
-      behavior: 'smooth'
-    });
-  }
+  fullscreenGallery.style.display = 'none';  // hide gallery
+  document.body.classList.remove('no-scroll'); // if used elsewhere
+
+  document.querySelector('.gallery-placeholder').scrollIntoView({ behavior: 'smooth' });
+}
+
 
   thumbnails.forEach((thumb, index) => {
     thumb.addEventListener('click', () => openGallery(index));
