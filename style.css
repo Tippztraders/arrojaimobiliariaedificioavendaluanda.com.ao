@@ -204,6 +204,7 @@ background: url('1200 1H.png') center center / cover no-repeat;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+   display: none;
 }
 
 .fullscreen-gallery img {
