@@ -235,8 +235,11 @@ background: url('1200 1H.png') center center / cover no-repeat;
 /* === To contain the images on the placeholder === */
 .visible-thumbnail {
   width: 100%;
-  max-width: 300px; /* or whatever size fits */
-  cursor: pointer;
+  height: auto; /* <-- This preserves aspect ratio */
+  object-fit: contain; /* Or "cover" if you prefer full fill */
+  max-width: 300px; /* Optional: limit how big it grows */
+  display: block;
+  margin: 0 auto;
 }
 
 .hidden-thumb {
