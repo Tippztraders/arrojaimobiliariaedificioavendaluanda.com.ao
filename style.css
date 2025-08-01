@@ -285,6 +285,28 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 
+/* == CLOSE GALLERY == */
+.close-gallery {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  z-index: 1000;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+/* == end of CLOSE GALLERY == */
+
+
+
+
+
 
 
 
