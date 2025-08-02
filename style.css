@@ -528,7 +528,7 @@ section p {
 .info-card {
   background: linear-gradient(to right, #ccebff, #99d6ff); /* blue gradient */
   border-left: 5px solid #99ccff;
-  padding: 1em; /* 1em */
+  padding: 0.05em; /* 1em */
   margin: 1em auto;
   border-radius: 10px;
   max-width: 720px;
@@ -553,14 +553,14 @@ section p {
 }
 
 .pago-dolares { 
-  background: linear-gradient(to right, #e8ebed, #e6e8eb); 
-  border-left: 5px solid #bfbfbf;
+  background: white;  /* linear-gradient(to right, #e8ebed, #e6e8eb); */
+  border-left: white; /* 5px solid #bfbfbf; */
   padding: 1em;
   margin: 1em auto;
   border-radius: 10px;
   max-width: 720px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  text-align: left;
+  text-align: center; /* left; */
   font-size: 1em;
   color: #003366;
 }
