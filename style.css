@@ -322,7 +322,7 @@ background: url('1200 1H.png') center center / cover no-repeat;
 }
 
 #video-section video {
-  width: 100%;            /* fill container width */
+  width: 90%;            /* fill container width */
   height: auto;           /* keep aspect ratio */
   border-radius: 8px;     /* optional rounded corners */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
