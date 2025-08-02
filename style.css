@@ -582,6 +582,8 @@ section p {
   font-size: 15px;
   color: #222;
   line-height: 1.5;
+  justify-content: center;     /* center the grid itself */
+  text-align: center;          /* center text inside the items */
 }
 
 .resume-grid li {
