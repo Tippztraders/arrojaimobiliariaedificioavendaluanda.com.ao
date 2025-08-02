@@ -310,6 +310,66 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 
 
+
+
+
+/* == VIDEO GALLERY == */
+#video-section {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.video-placeholder {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.video-thumbnail {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border: 3px solid #ccc;
+  cursor: pointer;
+}
+
+.fullscreen-video {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.fullscreen-video video {
+  width: 100%;
+  max-width: 900px;
+  max-height: 80vh;
+  background: black;
+}
+
+.close-video {
+  margin-top: 1em;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  text-align: center;
+}
+/* == end of VIDEO GALLERY == */
+
+
+
+
+
+
+
+
+
+
 /* == INFO CARDS == */
 .info-card {
   background: linear-gradient(to right, #ccebff, #99d6ff);
