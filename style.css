@@ -325,7 +325,7 @@ background: url('1200 1H.png') center center / cover no-repeat;
 /* == VIDEO GALLERY == */
 #video-section {
   max-width: 700px;       /* limit max width */
-  margin: 2em auto;       /* center horizontally and add spacing */
+  margin: 4em auto 2em; /* top, horizontal, bottom */
   padding: 0 1em;
   text-align: center;
 }
