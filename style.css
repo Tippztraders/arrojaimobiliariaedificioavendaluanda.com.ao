@@ -345,6 +345,14 @@ background: url('1200 1H.png') center center / cover no-repeat;
   font-weight: bold;
   user-select: none;
 }
+
+.video-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+}
+
 /* == end of VIDEO GALLERY == */
 
 
