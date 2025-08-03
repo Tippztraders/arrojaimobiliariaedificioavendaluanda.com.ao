@@ -401,14 +401,14 @@ background: url('1200 1H.png') center center / cover no-repeat;
   vertical-align: middle;
   margin-right: 8px;
 }
+/* == end of INFO CARDS == */
 
 
 
 
 
 
-
-/* == LOCATION == */
+/* == LOCATION DO EDIFICIO == */
 section p {
   font-size: 1.3em;
   line-height: 1.6;
@@ -432,7 +432,7 @@ section p {
   max-width: 600px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
-/* end of location */ 
+/* end of LOCATION DO EDIFICIO */ 
 
 
 
