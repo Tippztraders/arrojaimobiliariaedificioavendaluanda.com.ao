@@ -68,10 +68,11 @@ background: url('1200 1H.png') center center / cover no-repeat;
 
 .valor {
   font-size: 2em;  /* 1.5em */
-  color: white; /* #000; */
+  color: #fc9c1e; /* #000; */
   margin-bottom: 0.5em;
-  -webkit-text-stroke: 0.5px black;
-  color: white;
+  -webkit-text-stroke: 0.5px black;  
+  font-style: italic;
+  font-family: 'Georgia', serif;
 }
 
 
