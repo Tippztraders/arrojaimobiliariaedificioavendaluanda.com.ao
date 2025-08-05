@@ -67,12 +67,17 @@ background: url('1200 1H.png') center center / cover no-repeat;
 }
 
 .valor {
-  font-size: 2em;  /* 1.5em */
-  color: #fc9c1e; /* #000; */
-  margin-bottom: 0.5em;
-  -webkit-text-stroke: 0.5px black;  
+  font-size: 1.6em;
+  font-weight: 500;
+  color: #1a1a1a;  
+  padding: 1em 1.5em;
+  border-radius: 12px;
   font-style: italic;
+  text-align: center;
+  max-width: 600px;
+  margin: 2em auto; 
   font-family: 'Georgia', serif;
+  backdrop-filter: blur(2px);
 }
 
 
