@@ -747,6 +747,41 @@ section p {
   }
 }
 
+
+
+/* Whatsapp controls */
+.whatsapp-line {
+  text-align: center;
+}
+    
+  .whatsapp-footer-link {
+  color: #25D366;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-footer-link:hover {
+  opacity: 0.8;
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
+}
+  
+  
+@media (max-width: 600px) {
+  .whatsapp-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+  
+/* end of Whatsapp controls */
+
 /* END OF FOOTER */
-
-
