@@ -576,6 +576,13 @@ section p {
   color: #004d00;
 }
 
+.preco-extenso {
+  display: block;
+  margin-top: 0.4em;
+  font-size: 0.9em;
+  font-weight: normal;
+}
+
 .pago-dolares { 
   background: white;  /* linear-gradient(to right, #e8ebed, #e6e8eb); */
   border-left: white; /* 5px solid #bfbfbf; */
