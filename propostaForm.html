@@ -205,7 +205,10 @@ function formatarMoeda(campo) {
 }
 
 
-  
+  ['nome', 'telefone', 'email', 'descricao', 'localizacao', 'valor', 'condicoes'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => montarMensagem(true));
+});
+
 
   
 
