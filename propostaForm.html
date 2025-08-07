@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proposta de Compra de Imóvel</title>
+  <title>Proposta Informal de Compra de Imóvel</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
@@ -33,7 +33,7 @@
       padding: 0.8em;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 1em;
+      font-size: 1.1em;
     }
 
     button {
@@ -60,13 +60,19 @@
       text-align: center;
       margin-bottom: 1em;
     }
+
+    form h2 {
+    margin-bottom: 1.5em;
+    }
+
+    
   </style>
 </head>
 <body>
 
   <form id="propostaForm">
     <img src="logo.png" alt="Logo" class="logo"> <!-- Replace logo.png with your path -->
-    <h2>📄 Proposta de Compra de Imóvel</h2>
+    <h2>📄 Proposta Informal de Compra de Imóvel</h2>
 
     <label>Nome Completo:</label>
     <input type="text" id="nome" required>
@@ -79,12 +85,20 @@
 
     <label>Descrição do Imóvel:</label>
     <textarea id="descricao" required></textarea>
+    <small style="display:block; color:gray; margin-top:4px;">
+   (Ex: Apartamento T4, Prédio Azul, 5º Andar)
+  </small>
+
 
     <label>Localização do Imóvel:</label>
     <input type="text" id="localizacao" required>
+    <small style="display:block; color:gray; margin-top:4px;">
+    (Ex: Rua da Liberdade, Benfica, Luanda)
+   </small>
 
-    <label>Valor da Proposta (N$):</label>
-    <input type="text" id="valor" required>
+    <label>Valor da Proposta (Dolares Americanos (US$):</label>
+    <input type="text" id="valor" oninput="formatarMoeda(this)" required>
+
 
     <label>Condições (opcional):</label>
     <textarea id="condicoes"></textarea>
@@ -95,18 +109,29 @@
     </div>
   </form>
 
-  <script>
-    function montarMensagem() {
-      const nome = document.getElementById('nome').value.trim();
-      const telefone = document.getElementById('telefone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const descricao = document.getElementById('descricao').value.trim();
-      const localizacao = document.getElementById('localizacao').value.trim();
-      const valor = document.getElementById('valor').value.trim();
-      const condicoes = document.getElementById('condicoes').value.trim();
-      const hoje = new Date().toLocaleDateString('pt-BR');
+<hr style="margin:2em 0;">
+<h3>📄 Pré-visualização da Proposta:</h3>
+<pre id="preview" style="white-space: pre-wrap; background:#f2f2f2; padding:1em; border-radius:6px; font-family: 'Courier New', monospace;"></pre>
 
-      return `PROPOSTA DE COMPRA DE IMÓVEL
+<p style="text-align:center; margin-top:2em;">
+  <a href="index.html">🔙 Voltar à Página Principal</a>
+</p>
+
+
+  
+  
+  <script>
+   function montarMensagem(atualizarPreview = true) {
+  const nome = document.getElementById('nome').value.trim();
+  const telefone = document.getElementById('telefone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const descricao = document.getElementById('descricao').value.trim();
+  const localizacao = document.getElementById('localizacao').value.trim();
+  const valor = document.getElementById('valor').value.trim();
+  const condicoes = document.getElementById('condicoes').value.trim();
+  const hoje = new Date().toLocaleDateString('pt-BR');
+
+  const mensagem = `PROPOSTA INFORMAL DE COMPRA DE IMÓVEL
 
 Eu, ${nome}, venho por este meio apresentar uma proposta de compra para o imóvel situado em:
 
@@ -124,7 +149,14 @@ Assinatura: ${nome}
 Data: ${hoje}
 Contacto: ${telefone}
 ${email ? "Email: " + email : ""}`;
-    }
+
+  if (atualizarPreview) {
+    document.getElementById('preview').textContent = mensagem;
+  }
+
+  return mensagem;
+}
+
 
     function enviarWhatsApp() {
       const mensagem = montarMensagem();
@@ -145,18 +177,37 @@ ${email ? "Email: " + email : ""}`;
       doc.setFont("Helvetica");
       doc.setFontSize(12);
 
-      linhas.forEach((linha) => {
-        doc.text(linha, 10, y);
-        y += 8;
-        if (y > 280) {
-          doc.addPage();
-          y = 20;
-        }
-      });
+     linhas.forEach((linha) => {
+  const linhasQuebradas = doc.splitTextToSize(linha, 180); // 180 = width
+  linhasQuebradas.forEach((l) => {
+    doc.text(l, 10, y);
+    y += 8;
+    if (y > 280) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+});
+
 
       doc.save("Proposta-de-Compra.pdf");
     }
   </script>
+
+
+
+function formatarMoeda(campo) {
+  let valor = campo.value.replace(/\D/g, '');
+  valor = (parseFloat(valor) / 100).toFixed(2) + '';
+  valor = valor.replace('.', ',');
+  valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  campo.value = valor;
+}
+
+
+  
+
+  
 
 </body>
 </html>
