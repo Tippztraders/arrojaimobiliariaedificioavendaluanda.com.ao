@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta de Compra de Imóvel</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      background: #f9f9f9;
+    }
+
+    form {
+      background: white;
+      padding: 2em;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    img.logo {
+      display: block;
+      max-width: 200px;
+      margin: 0 auto 1em auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 0.8em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #25D366;
+      color: white;
+      padding: 1em;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1ebe5d;
+    }
+
+    .pdf-btn {
+      background-color: #007BFF;
+      margin-left: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="propostaForm">
+    <img src="logo.png" alt="Logo" class="logo"> <!-- Replace logo.png with your path -->
+    <h2>📄 Proposta de Compra de Imóvel</h2>
+
+    <label>Nome Completo:</label>
+    <input type="text" id="nome" required>
+
+    <label>Telefone / WhatsApp:</label>
+    <input type="text" id="telefone" required>
+
+    <label>Email (opcional):</label>
+    <input type="email" id="email">
+
+    <label>Descrição do Imóvel:</label>
+    <textarea id="descricao" required></textarea>
+
+    <label>Localização do Imóvel:</label>
+    <input type="text" id="localizacao" required>
+
+    <label>Valor da Proposta (N$):</label>
+    <input type="text" id="valor" required>
+
+    <label>Condições (opcional):</label>
+    <textarea id="condicoes"></textarea>
+
+    <div style="display:flex; justify-content:center; flex-wrap:wrap;">
+      <button type="button" onclick="enviarWhatsApp()">📲 Enviar via WhatsApp</button>
+      <button type="button" class="pdf-btn" onclick="salvarPDF()">💾 Salvar em PDF</button>
+    </div>
+  </form>
+
+  <script>
+    function montarMensagem() {
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const descricao = document.getElementById('descricao').value.trim();
+      const localizacao = document.getElementById('localizacao').value.trim();
+      const valor = document.getElementById('valor').value.trim();
+      const condicoes = document.getElementById('condicoes').value.trim();
+      const hoje = new Date().toLocaleDateString('pt-BR');
+
+      return `PROPOSTA DE COMPRA DE IMÓVEL
+
+Eu, ${nome}, venho por este meio apresentar uma proposta de compra para o imóvel situado em:
+
+Imóvel: ${descricao}
+Localização: ${localizacao}
+
+Valor da Proposta: N$ ${valor}
+(O valor inclui a comissão da agência)
+
+Condições: ${condicoes || "Nenhuma"}
+
+Tenho consciência de que esta é uma proposta não vinculativa e que está sujeita à confirmação do proprietário. Em caso de aceitação, será celebrado um contrato formal de compra e venda.
+
+Assinatura: ${nome}
+Data: ${hoje}
+Contacto: ${telefone}
+${email ? "Email: " + email : ""}`;
+    }
+
+    function enviarWhatsApp() {
+      const mensagem = montarMensagem();
+      const telefoneDestino = '244912345678'; // 👈 Coloca aqui o número do agente (sem +)
+      const url = `https://wa.me/${telefoneDestino}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+
+    function salvarPDF() {
+      const mensagem = montarMensagem();
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const linhas = mensagem.split('\n');
+      let y = 20;
+
+      doc.setFont("Helvetica");
+      doc.setFontSize(12);
+
+      linhas.forEach((linha) => {
+        doc.text(linha, 10, y);
+        y += 8;
+        if (y > 280) {
+          doc.addPage();
+          y = 20;
+        }
+      });
+
+      doc.save("Proposta-de-Compra.pdf");
+    }
+  </script>
+
+</body>
+</html>
