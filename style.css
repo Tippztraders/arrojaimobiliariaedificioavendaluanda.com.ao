@@ -653,13 +653,10 @@ section p {
 
 
 .footer-container {
-  max-width: 1200px;
+  display: block; /* change from flex to block */
+  max-width: 720px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;  Center child blocks */
-  text-align: left;
+  text-align: center;
 }
 
 .footer-section {
