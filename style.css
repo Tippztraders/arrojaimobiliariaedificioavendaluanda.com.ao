@@ -637,17 +637,20 @@ section p {
 
 /* == FOOTER: THIS CODE CONTROLS THE FOOTER == */
 .footer {
+  max-width: 720px;
+  margin: 0 auto;
   background-size: 100% 150px;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #0057b8; /* Primary blue */
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px 15px 15px;  /*padding: 20px 15px 15px; 
+  padding: 20px 15px 15px;
   font-size: 20px;
   line-height: 2;
   text-align: center;
 }
+
 
 .footer-container {
   max-width: 1200px;
