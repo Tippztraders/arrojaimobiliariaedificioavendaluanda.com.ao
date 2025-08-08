@@ -538,6 +538,22 @@ section p {
   color: #555;
   font-style: italic;
 }
+
+/* Resizes the map */
+#mapa > div {
+  max-width: 600px;      /* or 720px to match site */
+  margin: 0 auto 0.5em;  /* center horizontally + bottom margin */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* end of gps image */ 
+
+
+
+
+
+
 /* end of gps image */ 
 
 
