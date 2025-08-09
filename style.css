@@ -777,14 +777,14 @@ section p {
 /* Arrows styling -PROPOSTA DE COMPRA */
 .arrowed::before {
   content: "▶▶ ";
-  color: goldenrod;
+  color: #25D366;  /* goldenrod;  */
   font-weight: bold;
   animation: arrowBlink 6s infinite; /* 6s cycle: 5s steady + 1s blink */
 }
 
 .arrowed::after {
   content: " ◀◀";
-  color: goldenrod;
+  color: #25D366;  /* goldenrod;  */
   font-weight: bold;
   animation: arrowBlink 6s infinite;
 }
