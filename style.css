@@ -776,7 +776,7 @@ section p {
 
 /* Arrows styling -PROPOSTA DE COMPRA */
 .arrowed::before {
-  content: "➤➤ ";
+  content: "▶▶ ";
   color: goldenrod;
   font-weight: bold;
   animation: arrowBlink 6s infinite; /* 6s cycle: 5s steady + 1s blink */
