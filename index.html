@@ -337,9 +337,18 @@
       
       
   <div class="footer-bottom">
-    <p>© 2025 Arroja Imobiliárias. Todos os direitos reservados.</p>
-  </div>
+  <p>© 2025 Arroja Imobiliárias. Todos os direitos reservados. | <span id="visits" style="color:gold;">0</span></p>
+</div>
 </footer>
+
+<script>
+  fetch('https://api.countapi.xyz/hit/arroja-imobiliarias-2025/visits')
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById('visits').innerText = res.value;
+    });
+</script>
+
 <!-- end of FOOTER -->
 
 
