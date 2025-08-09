@@ -625,6 +625,9 @@ section p {
   padding: 30px 20px;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
+  max-width: 710px;     /* ✅ limit width */
+  margin: 0 auto;       /* ✅ center section horizontally */
+  
 }
 
 .resumo-items {
