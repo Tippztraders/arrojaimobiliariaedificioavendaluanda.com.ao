@@ -71,7 +71,7 @@ background: url('1200 1H.png') center center / cover no-repeat;
   font-weight: 500;
   color: #1a1a1a;  
   border: 2px solid #f4c542; /* gold border */
-  padding: 1em 1.5em;
+  padding: 0.5em 0.75em;     /*  1em 1.5em */
   border-radius: 16px; /* soft rounded edges */
   font-style: italic;
   text-align: center;
