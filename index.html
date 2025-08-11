@@ -341,13 +341,23 @@
 </div>
 </footer>
 
+<!-- Visitor Counter -->
+<div style="text-align:center; font-family:sans-serif; margin-top:20px;">
+  Visitors: <span id="visits">loading...</span>
+</div>
+
 <script>
+  // Replace namespace/key with your own, but keep them the same everywhere
   fetch('https://api.countapi.xyz/hit/arroja-imobiliarias-2025/visits')
     .then(res => res.json())
     .then(res => {
-      document.getElementById('visits').innerText = res.value;
+      document.getElementById('visits').textContent = res.value;
+    })
+    .catch(() => {
+      document.getElementById('visits').textContent = "unavailable";
     });
 </script>
+
 
 <!-- end of FOOTER -->
 
