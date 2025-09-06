@@ -824,7 +824,34 @@ section p {
 /* end of Whatsapp controls */
 
 
-
-
-
 /* END OF FOOTER */
+
+
+
+/* Outer wrapper COUNTER: full width on mobile, limited on desktop */
+
+.counter-bar-wrapper {
+  background-color: #0000; /* Black bar background */
+  width: 100%; /* Use 100% instead of 100vw for better scrollbar handling */
+  /* Remove margin-left and margin-right as 100% width handles full-bleed within the parent */
+  box-sizing: border-box;
+  padding: 0.5em 0;
+  overflow-x: hidden; /* Prevent horizontal scrollbar if any content overflows */
+}
+
+/* Inner content: same width as footer max-width */
+.counter-bar {
+  max-width: 960px; /* Same as footer content */
+  margin: 0 auto; /* Center it */
+  text-align: center; /* Center counter */
+}
+
+.counter-bar img {
+  height: 18px; /* Small number */
+  width: auto; /* Keep ratio */
+  max-width: 100%; /* Ensure images don't exceed their parent's width */
+}
+
+/* end of COUNTER */
+
+
